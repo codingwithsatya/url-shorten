@@ -19,7 +19,7 @@ export const urlShortener = async (req: Request, res: Response) => {
     }
 
     const shortCode = shortid.generate();
-    const shortUrl = process.env.BASE_URL + shortCode;
+    const shortUrl = process.env.BASE_URL + "/redirect/" + shortCode;
 
     url = new Url({
       longUrl,
@@ -42,7 +42,7 @@ export const urlRedirectByID = async (req: Request, res: Response) => {
     const url = await Url.findOne({ shortCode: req.params.code });
 
     if (url) {
-      return res.redirect(url.longUrl);
+      return res.status(200).json({ url: url.longUrl });
     } else {
       return res.status(404).json({ error: "URL not found" });
     }

@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import urlShortnerRoute from "./routes/urlShortnerRoute";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -20,7 +21,16 @@ const dbConnect = () => {
 };
 
 app.use(express.json());
-// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  next();
+});
 
 app.use("/api", urlShortnerRoute);
 
