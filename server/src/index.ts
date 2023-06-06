@@ -23,7 +23,7 @@ const dbConnect = () => {
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://url-shorten-ui.onrender.com",
   })
 );
 app.use((req, res, next) => {
