@@ -10,6 +10,7 @@ const Redirect = () => {
   const [originalUrl, setOriginalUrl] = useState('');
 
   useEffect(() => {
+    console.log("hi")
     const fetchOriginalUrl = async () => {
       try {
         const response = await axios.get(endpoint + `/api/urlshort/${code}`);
