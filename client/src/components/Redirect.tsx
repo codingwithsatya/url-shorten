@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const endpoint = process.env.URL_ENDPOINT || 'https://url-shorten-u9h7.onrender.com';
+console.log(endpoint, 'end');
 
 const Redirect = () => {
   const { code } = useParams();
@@ -13,7 +14,8 @@ const Redirect = () => {
       try {
         const response = await axios.get(endpoint + `/api/urlshort/${code}`);
         const originalUrl = response.data.url;
-        setOriginalUrl(originalUrl);
+        console.log(originalUrl, 'url');
+//         setOriginalUrl(originalUrl);
       } catch (error) {
         console.error('Error while fetching original URL:', error);
       }
