@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const endpoint = process.env.URL_ENDPOINT || 'http://localhost:8800';
+const endpoint = process.env.URL_ENDPOINT || 'https://url-shorten-u9h7.onrender.com';
 
 const Redirect = () => {
   const { code } = useParams();
