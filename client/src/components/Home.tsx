@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const endpoint = process.env.URL_ENDPOINT || 'http://localhost:8800/';
+const endpoint = process.env.URL_ENDPOINT || 'https://url-shorten-u9h7.onrender.com/';
 
 const Home = () => {
     const [longUrl, setlongUrl] = useState('');
